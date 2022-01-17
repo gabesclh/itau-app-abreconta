@@ -1,17 +1,19 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat/';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
-import { NgxMaskModule } from 'ngx-mask';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileModule } from './profile/profile.module';
+import { PerfilModule } from './perfil/perfil.module';
 import { SharedModule } from './shared/shared.module';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { environment } from 'src/environments/environment';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -21,13 +23,13 @@ import { environment } from 'src/environments/environment';
     SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ProfileModule,
+    PerfilModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     JwtModule.forRoot({
       config: {
@@ -37,6 +39,10 @@ import { environment } from 'src/environments/environment';
       },
     }),
     NgxMaskModule.forRoot(),
+  ],
+  exports: [
+    PerfilModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
