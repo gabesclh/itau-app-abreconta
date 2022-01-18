@@ -1,0 +1,178 @@
+<app-header></app-header>
+
+<div class="max-width-container-wrap">
+    <div class="profile-wrap max-width-container">
+        <div matRipple class="top-wrap">
+            <div class="top-text col-md-10">
+                <h1>Seja bem-vindo ao Itaú Abreconta</h1>
+                <p>Através desta página você preenche suas informações de perfil e nós damos início ao seu processo de
+                    abertura de conta. 🤩</p>
+                <button mat-raised-button color="primary" (click)="limpaFormulario()" *ngIf="showForm"
+                    class="custom-button">
+                    <mat-icon>
+                        start
+                    </mat-icon>
+                    Consultar novo CPF
+                </button>
+                <button mat-stroked-button (click)="limpaFormulario()" class="custom-button stroke-light"
+                    *ngIf="newUser">
+                    <mat-icon>
+                        clear
+                    </mat-icon>
+                    Cancelar
+                </button>
+                <button mat-stroked-button (click)="toggleEdit()" class="custom-button stroke-light"
+                    *ngIf="showForm && !newUser">
+                    <mat-icon>
+                        edit
+                    </mat-icon>
+                    Editar perfil
+                </button>
+                <button mat-stroked-button (click)="removerDados()" class="custom-button stroke-light"
+                    *ngIf="showForm && !newUser && !signupOk">
+                    <mat-icon>
+                        delete
+                    </mat-icon>
+                    Remover perfil
+                </button>
+            </div>
+        </div>
+
+        <div class="pesquisa-cpf col-md-12" *ngIf="!showForm && !signupOk">
+            <div class="col-md-6">
+                <h2>Para começar, digite seu CPF</h2>
+                <p>
+                    Nós usamos esta informação para verificar se você já tem uma conta aberta no Itaú. Fique tranquilo,
+                    o
+                    tráfego desta informação é feito de forma segura.
+                </p>
+                <form [formGroup]="cpfForm">
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="col-md-3">
+                            <mat-label>CPF</mat-label>
+                            <input matInput type="text" formControlName="cpf" #cpf [dropSpecialCharacters]="true"
+                                mask="000.000.000-00" name="CPF">
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button color="primary" (click)="pesquisaCPF(cpf.value)">
+                        <mat-icon>
+                            search
+                        </mat-icon>
+                        Pesquisar
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <img src="../../assets/undraw_online_payments_re_y8f2.svg" alt="Ilustração de personagem com um cartão na mão" />
+            </div>
+        </div>
+
+        <div class="page-concluido col-md-12" *ngIf="signupOk">
+            <div class="col-md-6">
+                <h2>É isso! Obrigado pela inscrição.</h2>
+                <p>
+                    Nossos especialistas irão realizar uma análise nos dados que você enviou, e entrarão em contato para
+                    finalizar a abertura da sua conta! 😍
+                </p>
+                <button mat-raised-button color="primary" (click)="limpaFormulario()">
+                    <mat-icon>
+                        add
+                    </mat-icon>
+                    Nova consulta
+                </button>
+            </div>
+            <div class="col-md-6">
+                <img src="../../assets/undraw_done_re_oak4.svg" alt="Ilustração de personagem com uma lista de tarefas concluída" />
+            </div>
+        </div>
+
+        <form [formGroup]="userForm" *ngIf="showForm">
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Dados pessoais
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>account_circle</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="col-md-3">
+                            <mat-label>CPF</mat-label>
+                            <input matInput type="text" formControlName="cpf" [dropSpecialCharacters]="true"
+                                mask="000.000.000-00" name="CPF">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-3">
+                            <mat-label>Nome</mat-label>
+                            <input matInput type="text" formControlName="nome" name="nome">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-3">
+                            <mat-label>E-mail</mat-label>
+                            <input matInput type="email" formControlName="email" name="e-mail">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-3">
+                            <mat-label>Celular</mat-label>
+                            <input matInput type="tel" formControlName="telefone" [dropSpecialCharacters]="true"
+                                mask="(00 00) 00000-0000" name="telefone">
+                        </mat-form-field>
+                    </div>
+                    <mat-action-row *ngIf="showForm">
+                        <button mat-stroked-button color="primary" (click)="nextStep()">Próximo</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Endereço
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <mat-icon>map</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>CEP</mat-label>
+                            <input matInput type="text" formControlName="cep" [dropSpecialCharacters]="true"
+                                mask="00000-000" name="CEP">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>Endereço</mat-label>
+                            <input matInput type="text" formControlName="endereco" name="endereco">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>Complemento (apartamento, suíte, etc.)</mat-label>
+                            <input matInput type="text" formControlName="complemento" name="complemento">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>Cidade</mat-label>
+                            <input matInput type="text" formControlName="cidade" name="cidade">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="estado" name="estado">
+                                <mat-option *ngFor="let estado of estados" [value]="estado.sigla">
+                                    {{estado.nome}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="col-md-4">
+                            <mat-label>País</mat-label>
+                            <input matInput type="text" formControlName="pais" name="país">
+                        </mat-form-field>
+                    </div>
+                    <mat-action-row *ngIf="showForm">
+                        <button mat-stroked-button color="warn" (click)="prevStep()">Anterior</button>
+                        <button mat-button mat-raised-button color="primary" (click)="enviarDados()" *ngIf="newUser"
+                            [disabled]="userForm.invalid || !enableSubmit">Confirmar</button>
+                        <button mat-button mat-raised-button color="primary" (click)="atualizarDados()" *ngIf="!newUser"
+                            [disabled]="userForm.invalid || !enableSubmit">Confirmar</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </form>
+
+    </div>
+</div>
