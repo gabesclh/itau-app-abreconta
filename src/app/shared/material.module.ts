@@ -33,9 +33,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatProgressBarModule,
     MatSelectModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatSidenavModule,
   ],
   exports: [
     CommonModule,
@@ -51,9 +48,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCardModule,
     MatProgressBarModule,
     MatSelectModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatSidenavModule,
   ]
 })
 export class MaterialModule { }

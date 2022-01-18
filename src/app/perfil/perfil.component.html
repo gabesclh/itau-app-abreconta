@@ -6,7 +6,7 @@
             <div class="top-text col-md-10">
                 <h1>Seja bem-vindo ao Itaú Abreconta</h1>
                 <p>Através desta página você preenche suas informações de perfil e nós damos início ao seu processo de
-                    abertura de conta.</p>
+                    abertura de conta. 🤩</p>
                 <button mat-raised-button color="primary" (click)="limpaFormulario()" *ngIf="showForm"
                     class="custom-button">
                     <mat-icon>
@@ -29,7 +29,7 @@
                     Editar perfil
                 </button>
                 <button mat-stroked-button (click)="removerDados()" class="custom-button stroke-light"
-                    *ngIf="showForm && !newUser">
+                    *ngIf="showForm && !newUser && !signupOk">
                     <mat-icon>
                         delete
                     </mat-icon>
@@ -50,7 +50,8 @@
                     <div class="form-row">
                         <mat-form-field appearance="outline" class="col-md-3">
                             <mat-label>CPF</mat-label>
-                            <input matInput type="text" formControlName="cpf" #cpf mask="000.000.000-00">
+                            <input matInput type="text" formControlName="cpf" #cpf [dropSpecialCharacters]="true"
+                                mask="000.000.000-00" name="CPF">
                         </mat-form-field>
                     </div>
                     <button mat-raised-button color="primary" (click)="pesquisaCPF(cpf.value)">
@@ -73,12 +74,12 @@
                     Nossos especialistas irão realizar uma análise nos dados que você enviou, e entrarão em contato para
                     finalizar a abertura da sua conta! 😍
                 </p>
-                    <button mat-raised-button color="primary" (click)="limpaFormulario()">
-                        <mat-icon>
-                            add
-                        </mat-icon>
-                        Nova consulta
-                    </button>
+                <button mat-raised-button color="primary" (click)="limpaFormulario()">
+                    <mat-icon>
+                        add
+                    </mat-icon>
+                    Nova consulta
+                </button>
             </div>
             <div class="col-md-6">
                 <img src="../../assets/undraw_done_re_oak4.svg" />
@@ -99,19 +100,21 @@
                     <div class="form-row">
                         <mat-form-field appearance="outline" class="col-md-3">
                             <mat-label>CPF</mat-label>
-                            <input matInput type="text" formControlName="cpf" mask="000.000.000-99">
+                            <input matInput type="text" formControlName="cpf" [dropSpecialCharacters]="true"
+                                mask="000.000.000-00" name="CPF">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-3">
                             <mat-label>Nome</mat-label>
-                            <input matInput type="text" formControlName="nome">
+                            <input matInput type="text" formControlName="nome" name="nome">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-3">
                             <mat-label>E-mail</mat-label>
-                            <input matInput type="email" formControlName="email">
+                            <input matInput type="email" formControlName="email" name="e-mail">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-3">
                             <mat-label>Celular</mat-label>
-                            <input matInput type="tel" formControlName="telefone" mask="(00) 00000-0000">
+                            <input matInput type="tel" formControlName="telefone" [dropSpecialCharacters]="true"
+                                mask="(00 00) 00000-0000" name="telefone">
                         </mat-form-field>
                     </div>
                     <mat-action-row *ngIf="showForm">
@@ -130,29 +133,34 @@
                     <div class="form-row">
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>CEP</mat-label>
-                            <input matInput type="text" formControlName="cep" mask="00000-000">
+                            <input matInput type="text" formControlName="cep" [dropSpecialCharacters]="true"
+                                mask="00000-000" name="CEP">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>Endereço</mat-label>
-                            <input matInput type="text" formControlName="endereco">
+                            <input matInput type="text" formControlName="endereco" name="endereco">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>Complemento (apartamento, suíte, etc.)</mat-label>
-                            <input matInput type="text" formControlName="complemento">
+                            <input matInput type="text" formControlName="complemento" name="complemento">
                         </mat-form-field>
                     </div>
                     <div class="form-row">
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>Cidade</mat-label>
-                            <input matInput type="text" formControlName="cidade">
+                            <input matInput type="text" formControlName="cidade" name="cidade">
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>Estado</mat-label>
-                            <input matInput type="text" formControlName="estado">
+                            <mat-select formControlName="estado" name="estado">
+                                <mat-option *ngFor="let estado of estados" [value]="estado.sigla">
+                                    {{estado.nome}}
+                                </mat-option>
+                            </mat-select>
                         </mat-form-field>
                         <mat-form-field appearance="outline" class="col-md-4">
                             <mat-label>País</mat-label>
-                            <input matInput type="text" formControlName="pais">
+                            <input matInput type="text" formControlName="pais" name="país">
                         </mat-form-field>
                     </div>
                     <mat-action-row *ngIf="showForm">
