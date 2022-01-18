@@ -9,5 +9,5 @@ export const environment = {
   //   appId: "1:378511918797:web:7460df2a8321cf92184b84",
   //   measurementId: "G-K5F33EKF9Z"
   // },
-  apiUrl: 'http://localhost:8083/usuario/',
+  apiUrl: 'http://ec2-3-144-30-252.us-east-2.compute.amazonaws.com:8080/usuario/',
 };
