@@ -15,7 +15,7 @@
                     Consultar novo CPF
                 </button>
                 <button mat-stroked-button (click)="limpaFormulario()" class="custom-button stroke-light"
-                    *ngIf="newUser">
+                    *ngIf="newUser && !signupOk">
                     <mat-icon>
                         clear
                     </mat-icon>
@@ -118,7 +118,7 @@
                         </mat-form-field>
                     </div>
                     <mat-action-row *ngIf="showForm">
-                        <button mat-stroked-button color="primary" (click)="nextStep()">Próximo</button>
+                        <button mat-stroked-button color="primary" type="button" (click)="nextStep()">Próximo</button>
                     </mat-action-row>
                 </mat-expansion-panel>
                 <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
