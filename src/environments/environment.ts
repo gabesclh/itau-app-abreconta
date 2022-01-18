@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-
   firebase: {
     apiKey: "AIzaSyAqVeWfXHA9Gv7HVTtl1DuJrjkGZI0oONs",
     authDomain: "itau-app-abreconta.firebaseapp.com",
@@ -14,14 +13,7 @@ export const environment = {
     appId: "1:378511918797:web:7460df2a8321cf92184b84",
     measurementId: "G-K5F33EKF9Z"
   },
-
-  apiDomain: 'aw-colls-api.herokuapp.com',
-
-  apiUrl: 'https://aw-colls-api.herokuapp.com/',
-  apiGetArts: 'art/getAll',
-  apiPostArts: 'art/new',
-  apiGetCollectionAtual: 'collection/getAtual',
-  apiPostVoto: 'art/voteAdd',
+  apiUrl: 'http://localhost:8083/usuario/',
 };
 
 /*

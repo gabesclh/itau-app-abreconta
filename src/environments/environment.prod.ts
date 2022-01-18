@@ -1,6 +1,5 @@
 export const environment = {
   production: true,
-
   firebase: {
     apiKey: "AIzaSyAqVeWfXHA9Gv7HVTtl1DuJrjkGZI0oONs",
     authDomain: "itau-app-abreconta.firebaseapp.com",
@@ -10,4 +9,5 @@ export const environment = {
     appId: "1:378511918797:web:7460df2a8321cf92184b84",
     measurementId: "G-K5F33EKF9Z"
   },
+  apiUrl: 'http://localhost:8083/usuario/',
 };
