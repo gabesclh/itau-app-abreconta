@@ -13,7 +13,7 @@
     background-image: url("../../assets/perfil-bg-1.jpg");
     background-position: center;
     background-size: cover;
-    background-color: rgba(#5C4434, 1);
+    background-color: rgba(#5c4434, 1);
     background-blend-mode: multiply;
 
     .user-photo {
@@ -39,7 +39,8 @@
     }
 }
 
-form,.pesquisa-cpf {
+form,
+.pesquisa-cpf {
     margin: 2rem 0;
 }
 
@@ -51,7 +52,8 @@ form,.pesquisa-cpf {
     form {
         margin-top: 0;
     }
-    mat-form-field, button {
+    mat-form-field,
+    button {
         width: 100%;
     }
     img {
@@ -81,6 +83,15 @@ form,.pesquisa-cpf {
 .mat-expansion-panel-header-description {
     justify-content: flex-end;
     margin-right: 0;
+}
+
+mat-accordion .form-row {
+    width: calc(100% + 1rem);
+    margin-left: -0.5rem;
+    mat-form-field {
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 1000px) {
