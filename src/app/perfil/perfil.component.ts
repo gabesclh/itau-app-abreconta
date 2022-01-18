@@ -15,6 +15,7 @@ export class PerfilComponent implements OnInit {
   cpfForm: FormGroup;
   showForm = false;
   newUser = false;
+  signupOk = false;
   enableSubmit = false;
   hide = true;
   step = 0;
@@ -101,6 +102,7 @@ export class PerfilComponent implements OnInit {
       );
       this.showForm = false;
       this.setStep(0);
+      this.signupOk = true;
     }, error => {
       this.snackBar.open(
         `Erro ao atualizar seu perfil! Tenta novamente? 😔`,
@@ -124,6 +126,7 @@ export class PerfilComponent implements OnInit {
       );
       this.showForm = false;
       this.setStep(0);
+      this.signupOk = true;
     }, error => {
       this.snackBar.open(
         `Erro ao atualizar seu perfil! Tenta novamente? 😔`,
@@ -160,6 +163,7 @@ export class PerfilComponent implements OnInit {
   limpaFormulario() {
     this.cpfForm.reset();
     this.userForm.reset();
+    this.signupOk = false;
     this.showForm = false;
     this.newUser = false;
     this.step = 0;

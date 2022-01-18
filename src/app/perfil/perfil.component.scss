@@ -40,11 +40,13 @@
 }
 
 form,
-.pesquisa-cpf {
+.pesquisa-cpf,
+.page-concluido {
     margin: 2rem 0;
 }
 
-.pesquisa-cpf {
+.pesquisa-cpf,
+.page-concluido {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
