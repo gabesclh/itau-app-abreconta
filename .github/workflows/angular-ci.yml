@@ -71,12 +71,6 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: deploy_dist
-      - name: Download artifact
-        uses: aochmann/actions-download-artifact@1.0.0
-        with:
-          name: deploy_dist
-          latest: true
-          path: final_deploy_build
       - name: Deploy
         uses: jakejarvis/s3-sync-action@master
         with:
