@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 97.0.4691.0 (Mac OS 10.15.7)" package="" timestamp="2022-01-18T18:23:13" id="0" hostname="MBP-de-Gabriel" tests="4" errors="0" failures="0" time="0.317">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36"/>
+  </properties>
+  <testcase name="PerfilService should be created" time="0.036" classname="Chrome_Headless_97_0_4691_0_(Mac_OS_10_15_7).PerfilService"/>
+  <testcase name="HeaderComponent should create" time="0.076" classname="Chrome_Headless_97_0_4691_0_(Mac_OS_10_15_7).HeaderComponent"/>
+  <testcase name="PerfilComponent should create" time="0.197" classname="Chrome_Headless_97_0_4691_0_(Mac_OS_10_15_7).PerfilComponent"/>
+  <testcase name="AppComponent should create the app" time="0.008" classname="Chrome_Headless_97_0_4691_0_(Mac_OS_10_15_7).AppComponent"/>
+  <system-out>
+    <![CDATA[Chrome Headless 97.0.4691.0 (Mac OS 10.15.7) ERROR: 'NG0303: Can't bind to 'formGroup' since it isn't a known property of 'form'.'
+,Chrome Headless 97.0.4691.0 (Mac OS 10.15.7) ERROR: 'NG0303: Can't bind to 'dropSpecialCharacters' since it isn't a known property of 'input'.'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
