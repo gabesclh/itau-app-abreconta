@@ -8,8 +8,6 @@ import { UsuarioModel } from '../model/usuario.model';
 })
 export class PerfilService {
 
-  // headers = new HttpHeaders().append('accept', 'application/json').append('content-type', 'application/json');
-
   constructor(private http: HttpClient) { }
 
   getUser(cpf: string): Observable<any> {
