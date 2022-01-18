@@ -54,7 +54,7 @@
                                 mask="000.000.000-00" name="CPF">
                         </mat-form-field>
                     </div>
-                    <button mat-raised-button color="primary" (click)="pesquisaCPF(cpf.value)">
+                    <button mat-raised-button color="primary" class="custom-button" (click)="pesquisaCPF(cpf.value)" [disabled]="cpfForm.invalid">
                         <mat-icon>
                             search
                         </mat-icon>
@@ -74,7 +74,7 @@
                     Nossos especialistas irão realizar uma análise nos dados que você enviou, e entrarão em contato para
                     finalizar a abertura da sua conta! 😍
                 </p>
-                <button mat-raised-button color="primary" (click)="limpaFormulario()">
+                <button mat-raised-button color="primary" class="custom-button" (click)="limpaFormulario()">
                     <mat-icon>
                         add
                     </mat-icon>
