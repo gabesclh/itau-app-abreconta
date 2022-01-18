@@ -84,6 +84,7 @@ export class PerfilComponent implements OnInit {
     this.service.getUser(cpf).subscribe(user => {
       this.usuario = user[0];
       this.showForm = true;
+      this.enableSubmit = false;
       this.setStep(1);
       if (user.length > 0) {
         this.montarFormularioUsuario(this.usuario);
