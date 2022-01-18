@@ -109,4 +109,13 @@ mat-accordion .form-row {
             width: 100%;
         }
     }
+    mat-form-field {
+        width: 100%;
+    }
+    .pesquisa-cpf,
+    .page-concluido {
+        img {
+            margin-top: 2rem;
+        }
+    }
 }
