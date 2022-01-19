@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from '../shared.module';
-
 import { HeaderComponent } from './header.component';
+
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -16,9 +16,9 @@ describe('HeaderComponent', () => {
         SharedModule,
         MaterialModule
       ],
-      declarations: [ HeaderComponent ]
+      declarations: [HeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('deve ser criado', () => {
     expect(component).toBeTruthy();
   });
 });
