@@ -14,7 +14,6 @@ export const environment = {
   //   measurementId: "G-K5F33EKF9Z"
   // },
   apiUrl: 'http://localhost:8080/usuario/',
-
 };
 
 /*

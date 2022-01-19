@@ -1,7 +1,7 @@
 import { UsuarioModel } from "../usuario.model";
 
 export class UsuarioMock {
-    public usuario: UsuarioModel = {
+    usuario: UsuarioModel = {
         uid: '12345678',
         email: 'gabestylik@gmail.com',
         nome: 'Gabriel Coelho',

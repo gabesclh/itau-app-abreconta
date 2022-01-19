@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PerfilComponent } from './perfil.component';
-import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../shared/material.module';
+import { RouterModule, Routes } from '@angular/router';
 import { NgxMaskModule } from 'ngx-mask';
+import { MaterialModule } from '../shared/material.module';
+import { SharedModule } from '../shared/shared.module';
+import { PerfilComponent } from './perfil.component';
 
 const PerfilRouting: Routes = [
   {

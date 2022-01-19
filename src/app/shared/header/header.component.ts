@@ -1,54 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { EMPTY } from 'rxjs';
-// import { UserModel } from 'src/app/auth/security/user/user.model';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  // user: UserModel;
-  isLoggedIn = false;
-  isDesigner = false;
-  isAdmin = false;
-
-  constructor(
-    // public auth: AuthService,
-    private readonly snackBar: MatSnackBar,
-  ) { }
-
-  ngOnInit(): void {
-    // this.auth.user.subscribe(usr => {
-    //   if (usr) {
-    //     this.user = usr;
-    //     if (this.user.uid) { this.isLoggedIn = true; }
-    //     if (this.user.userDesigner) { this.isDesigner = true; }
-    //     if (this.user.userAdmin) { this.isAdmin = true; }
-    //   }
-    // });
-  }
-
-  logout(): void {
-    // this.auth
-    //   .logout()
-    //   .then(() => {
-    //     this.snackBar.open(
-    //       `Até logo! 👋🏾`,
-    //       'Tchau!',
-    //       {
-    //         duration: 4000,
-    //       },
-    //     );
-    //   }
-    //   ).catch((error) => {
-    //     this.snackBar.open(`${error.message} 😢`, 'Fechar', {
-    //       duration: 4000,
-    //     });
-    //     return EMPTY;
-    //   });
-  }
+  constructor() { }
 
 }
